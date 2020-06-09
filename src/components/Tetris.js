@@ -17,7 +17,7 @@ const Tetris = () => {
     const [dropTime,setDropTime]=useState(null);
     const [gameOver,setGameOver]=useState(false);
     const [player,updatePlayerPos,resetPlayer]=usePlayer();
-    const [stage,setStage]=useStage(player);
+    const [stage,setStage]=useStage(player, resetPlayer);
     console.log('re-render');
 
 
@@ -58,7 +58,7 @@ const Tetris = () => {
         }
     }
     return (
-        <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e=>move ()}>
+        <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e=>move(e)}>
             <StyledTetris>
                 <Stage stage={stage} />
                 <aside>
